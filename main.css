@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  /* font-family: 'Roboto', sans-serif; */
+}
+
+nav {
+  width: 100%;
+  margin: 0 auto;
+  background: #000;
+  padding: 10px 0;
+  /* position: fixed; */
+}
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 10px;
+  font-size: 1.5rem;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all 0.5s;
+}
+nav ul li a:hover {
+  color: rgb(199, 199, 199);
+}
+
+/* stroke */
+nav.stroke ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: rgb(199, 199, 199);
+  height: 1px;
+}
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+nav.fill ul li a {
+  transition: all 2s;
+}
+
+nav.fill ul li a:after {
+  text-align: left;
+  content: '.';
+  margin: 0;
+  opacity: 0;
+}
+nav.fill ul li a:hover {
+  color: #fff;
+  z-index: 1;
+}
+nav.fill ul li a:hover:after {
+  z-index: -10;
+  animation: fill 1s forwards;
+  -webkit-animation: fill 1s forwards;
+  -moz-animation: fill 1s forwards;
+  opacity: 1;
+}
+
+a:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Main Section */
+main {
+  height: 100vh;
+  background-color: #000;
+  display: grid;
+  grid-template-columns: 65% auto;
+  grid-gap: 2.5rem;
+  padding: 0 2.5rem;
+}
+
+/* article on left of main */
+article {
+  display: grid;
+  grid-template-areas:
+    'a b'
+    'c d';
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  background-image: url('https://images.pexels.com/photos/988872/pexels-photo-988872.jpeg?cs=srgb&dl=attractive-backdrop-background-988872.jpg&fm=jpg');
+  text-align: center;
+}
+
+article .grid-a {
+  grid-area: a;
+}
+
+article .grid-a img {
+  height: 25rem;
+  width: 25rem;
+  border-radius: 100%;
+  margin: 10%;
+}
+
+article .grid-b {
+  grid-area: b;
+  margin: 10%;
+}
+
+.grid-b h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.grid-b-content {
+  font-size: 1.5rem;
+}
+
+article .grid-c {
+  grid-area: c;
+}
+
+article .grid-d {
+  grid-area: d;
+}
+
+/* aside on right of main */
+aside {
+  background-image: url('https://images.pexels.com/photos/925743/pexels-photo-925743.jpeg?cs=srgb&dl=art-background-backlit-925743.jpg&fm=jpg');
+  background-size: cover;
+  text-align: center;
+}
+
+aside .twitter-tweet .twitter-tweet-rendered {
+  margin: 0 auto !important;
+}
+
+/* footer section */
+
+footer {
+  background-color: black;
+  text-align: center;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+footer p {
+  color: #fff;
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.5s;
+}
+
+footer a:hover {
+  text-shadow: 5px 5px 10px #fff, 0 0 25px #fff, 0 0 25px #fff;
+}
